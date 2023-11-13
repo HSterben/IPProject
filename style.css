@@ -15,7 +15,43 @@ nav {
     justify-content: space-between;
     align-items: center;
 }
+
+.nav-container {
+    transition: transform 0.3s;
+}
+
+.nav-container:hover {
+    transform: scale(1.05);
+}
+
+a:hover {
+    color: #b4b4b4;
+}
+
 nav a {
     color: white;
     text-decoration: none;
+}
+
+body {
+    background-color: #13151b;
+}
+
+.welcome {
+    width: 100%;
+    height: 300px;
+    margin-top: 1.4%;
+    text-align: center;
+    overflow: hidden;
+    background-image: url('path_to_your_image.jpg');
+    background-size: cover;
+    background-position: center top; /* Adjust this as needed */
+    border-radius: 15px;
+}
+
+
+.welcome img {
+    width: 60%;
+    border-radius: 15px;
+    background-repeat: no-repeat;
 }
