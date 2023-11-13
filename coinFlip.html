@@ -46,18 +46,48 @@
     </header>
     <main>
         <div class="gameContainer">
-            <img src="ttt.webp" alt="Tic Tac Toe Title" style="width: 20%; height: auto;" class="gameTitle">
+            <img src="coinFlip.webp" alt="Coin Flip Title" style="width: 15%; height: auto; margin: -1%;" class="gameTitle">
             <div class="game">
                 <div class="left">
-                    <p>hello there</p>
-                    <p>pick a choice</p>
+                    <p>Coin Side</p>
+                    <p>Heads &nbsp; &nbsp; Tails</p>
+                    <img src="" alt="">
                 </div>
                 <div class="right">
-                    <p>hello</p>
+                    <div class="coin">
+                        <div class="side" id="heads">Heads</div>
+                        <div class="side" id="tails">Tails</div>
+                    </div>
+                    <button onclick="flipCoin()">Flip Coin</button>
+                    <script src="script.js"></script>
                 </div>
             </div>
         </div>
     </main>
 </body>
+<script>
+    const coin = document.querySelector(".coin");
+    const heads = document.getElementById("heads");
+    const tails = document.getElementById("tails");
+
+    function flipCoin() {
+        const randomNumber = Math.random();
+        coin.style.transform = "rotateY(360deg)";
+
+        setTimeout(() => {
+            coin.style.transform = "rotateY(0deg)";
+        }, 700);
+
+        setTimeout(() => {
+            if (randomNumber < 0.5) {
+                heads.style.display = "block";
+                tails.style.display = "none";
+            } else {
+                heads.style.display = "none";
+                tails.style.display = "block";
+            }
+        }, 1300);
+    }
+</script>
 
 </html>
