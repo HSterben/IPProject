@@ -77,9 +77,23 @@ main {
 }
 
 .game {
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
     margin-top: 2%;
     width: 100%;
     background-color: #1c1d27;
     border-top: solid #393e5a 2px;
     border-bottom: solid #393e5a 2px;
+}
+
+.left {
+    width: 30%;
+    border-right: solid #393e5a 2px;
+}
+
+.right {
+    width: 70%;
+
 }
