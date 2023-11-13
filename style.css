@@ -5,7 +5,9 @@
 }
 
 nav {
+    position: fixed;
     margin: -0.7%;
+    margin-bottom: 1.7%;
     display: flex;
     padding: 1%;
     padding-left: 2%;
@@ -14,6 +16,7 @@ nav {
     border-radius: 10px;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
 }
 
 .nav-container {
@@ -51,7 +54,11 @@ body {
     border-radius: 15px;
 }
 
-
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .welcome img {
     width: 60%;
     border-radius: 15px;
@@ -59,7 +66,20 @@ body {
 }
 
 .gameContainer {
+    padding: 2%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 5%;
     background-color: #22242f;
-    width: 40%;
-    height: 200px;
+    width: 60%;
+    height: 70vh;
+    border-radius: 10px;
+}
+
+.game {
+    margin-top: 2%;
+    width: 100%;
+    background-color: #1c1d27;
+    border-top: solid #393e5a 2px;
+    border-bottom: solid #393e5a 2px;
 }
