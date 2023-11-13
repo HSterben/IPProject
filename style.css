@@ -35,6 +35,8 @@ nav a {
 
 body {
     background-color: #13151b;
+    text-align:center;
+    align-items: center;
 }
 
 .welcome {
@@ -54,4 +56,10 @@ body {
     width: 60%;
     border-radius: 15px;
     background-repeat: no-repeat;
+}
+
+.gameContainer {
+    background-color: #22242f;
+    width: 40%;
+    height: 200px;
 }
