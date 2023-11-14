@@ -96,7 +96,7 @@ main {
 }
 
 .right {
-    padding-top: 90px; 
+    padding-top: 90px;
     height: 45vh;
     width: 70%;
     border-left: solid #393e5a 2px;
@@ -119,7 +119,7 @@ main {
     transition: transform 0.15s;
 }
 
-.gButton:hover{
+.gButton:hover {
     background-color: #4e97ff;
     transform: scale(1.05);
 }
@@ -135,7 +135,8 @@ main {
     width: 100%;
 }
 
-.heads, .tails {
+.heads,
+.tails {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -198,3 +199,27 @@ main {
     transform: rotateY(180deg);
     display: none;
 } */
+
+#tttTable {
+    border-collapse: collapse;
+    width: 300px;
+    height: 300px;
+    table-layout: fixed;
+    background-color: #22242f;
+}
+
+#tttTable th {
+    width: 33.33%;
+    height: 33.33%;
+    text-align: center;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#tttTable th:last-child {
+    border-right: none;
+}
+
+#tttTable tr:last-child th {
+    border-bottom: none;
+}

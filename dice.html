@@ -111,17 +111,21 @@
                 document.getElementById("diceSum").innerHTML = "Sum: " + sum;
                 var rangeValue = parseInt(document.getElementById("rangePick").value);
 
-                if (value) { 
+                if (value) {
                     if (sum > rangeValue) {
                         result.innerHTML = "You Won!";
+                        result.style = "color: Green;"
                     } else {
                         result.innerHTML = "You Lost!";
+                        result.style = "color: Red;"
                     }
                 } else {
                     if (sum < rangeValue) {
                         result.innerHTML = "You Won!";
+                        result.style = "color: Green;"
                     } else {
                         result.innerHTML = "You Lost!";
+                        result.style = "color: Red;"
                     }
                 }
             }, diceClasses.length * delay);

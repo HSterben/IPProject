@@ -53,11 +53,54 @@
                     <p>pick a choice</p>
                 </div>
                 <div class="right">
-                    <p>hello</p>
+                    <table id="tttTable">
+                        <tr>
+                            <th onclick="ttt(0,0)"></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
     </main>
+    <script>
+        let used = [
+            [true, true, true],
+            [true, true, true],
+            [true, true, true]
+        ];
+        let placement = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+        function ttt(x, y) {
+            if (array[x, y]) {
+                array[x, y] = false;
+                placement[x,y] = "u";
+                if (!check(x, y)) {
+                    botTurn();
+                }
+            }
+        }
+        function check(x, y) {
+
+        }
+        function botTurn() {
+
+        }
+    </script>
 </body>
 
 </html>
