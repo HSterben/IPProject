@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sterboozie Games | Coin Flip</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
@@ -54,17 +54,18 @@
                         <label for="rangePick"> Please Choose your number: </label>
                         <input type="range" id="rangePick" min="2" max="12" step="1" oninput="updaterange(value)">
                         <br>
-                        <span id="rangeValue">6</span>
+                        <span id="rangeValue">7</span>
                         <br><br>
-                        <!-- #4483eb no hover
-                            #4e97ff hover-->
-                        <input type="button" value="Higher Than" class="diceButton">
+                        <input type="button" value="Higher Than" class="diceButton" onclick="roll(true)">
                         <br>
-                        <input type="button" value="Lower Than" class="diceButton">
+                        <input type="button" value="Lower Than" class="diceButton" onclick="roll(false)">
                     </form>
                 </div>
                 <div class="right">
-                    <p>hello</p>
+                    <i id="firstDice"></i>
+                    <i id="secondDice"></i>
+                    <p id="diceSum"></p>
+                    <p id="diceResult"></p>
                 </div>
             </div>
         </div>
@@ -73,6 +74,69 @@
         function updaterange(value) {
             document.getElementById("rangeValue").innerHTML = value;
         }
+
+        function roll(value) {
+            var first = document.getElementById("firstDice");
+            var second = document.getElementById("secondDice");
+            var sum = 0;
+            var result = document.getElementById("diceResult");
+            first.style = "font-size: 50px;";
+            second.style = "font-size: 50px;";
+            document.getElementById("diceSum").innerHTML = "";
+            result.innerHTML = "";
+
+            var diceClasses = [
+                "fa-solid fa-dice-one",
+                "fa-solid fa-dice-two",
+                "fa-solid fa-dice-three",
+                "fa-solid fa-dice-four",
+                "fa-solid fa-dice-five",
+                "fa-solid fa-dice-six"
+            ];
+
+            var delay = 500;
+
+            // Start from the last element and count down
+            for (let i = diceClasses.length - 1; i >= 0; i--) {
+                setTimeout(function () {
+                    first.className = diceClasses[i];
+                    second.className = diceClasses[i];
+                }, (diceClasses.length - 1 - i) * delay);
+            }
+
+            setTimeout(function () {
+                var firstResult = Math.floor(Math.random() * 6);
+                var secondResult = Math.floor(Math.random() * 6);
+                first.className = diceClasses[firstResult];
+                second.className = diceClasses[secondResult];
+                document.getElementById("diceSum").innerHTML = "Sum: " + sum;
+                sum = (firstResult + 1 + secondResult + 1);
+                document.getElementById("diceSum").innerHTML = "Sum: " + sum;
+                var rangeValue = parseInt(document.getElementById("rangePick").value);
+
+                if (value) { // If 'Higher Than' is selected
+                    if (sum > rangeValue) {
+                        result.innerHTML = "You Won!";
+                    } else if (sum == rangeValue) {
+                        result.innerHTML = "You Drawed!";
+                    } else {
+                        result.innerHTML = "You Lost!";
+                    }
+                } else { // If 'Lower Than' is selected
+                    if (sum < rangeValue) {
+                        result.innerHTML = "You Won!";
+                    } else if (sum == rangeValue) {
+                        result.innerHTML = "You Drawed!";
+                    } else {
+                        result.innerHTML = "You Lost!";
+                    }
+                }
+            }, diceClasses.length * delay);
+        }
+
+
+
+
     </script>
 </body>
 
