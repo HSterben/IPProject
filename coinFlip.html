@@ -46,20 +46,25 @@
     </header>
     <main>
         <div class="gameContainer">
-            <img src="coinFlip.webp" alt="Coin Flip Title" style="width: 15%; height: auto; margin: -1%;" class="gameTitle">
+            <img src="coinFlip.webp" alt="Coin Flip Title" style="width: 15%; height: auto; margin: -0.7%;"
+                class="gameTitle">
             <div class="game">
                 <div class="left">
                     <p>Coin Side</p>
                     <p>Heads &nbsp; &nbsp; Tails</p>
                     <img src="" alt="">
+                    <input type="button" class="gButton" onclick="flipCoin()" value="Flip Coin">
+                    <script src="script.js"></script>
                 </div>
                 <div class="right">
                     <div class="coin">
-                        <div class="side" id="heads">Heads</div>
-                        <div class="side" id="tails">Tails</div>
+                        <div class="heads">
+                            <img src="coinHeads.webp" alt="Heads">
+                        </div>
+                        <div class="tails">
+                            <img src="coinTails.webp" alt="Tails">
+                        </div>
                     </div>
-                    <button onclick="flipCoin()">Flip Coin</button>
-                    <script src="script.js"></script>
                 </div>
             </div>
         </div>
@@ -67,26 +72,21 @@
 </body>
 <script>
     const coin = document.querySelector(".coin");
-    const heads = document.getElementById("heads");
-    const tails = document.getElementById("tails");
 
     function flipCoin() {
-        const randomNumber = Math.random();
-        coin.style.transform = "rotateY(360deg)";
+        let i = Math.floor(Math.random() * 2);
 
-        setTimeout(() => {
-            coin.style.transform = "rotateY(0deg)";
-        }, 700);
+        coin.style.animation = "none";
 
-        setTimeout(() => {
-            if (randomNumber < 0.5) {
-                heads.style.display = "block";
-                tails.style.display = "none";
-            } else {
-                heads.style.display = "none";
-                tails.style.display = "block";
-            }
-        }, 1300);
+        if (i) {
+            setTimeout(function(){
+                coin.style.animation = "spin-heads 3s forwards";
+            }, 100);
+        } else {
+            setTimeout(function(){
+                coin.style.animation = "spin-tails 3s forwards";
+            }, 100);
+        }
     }
 </script>
 

@@ -46,7 +46,7 @@
     </header>
     <main>
         <div class="gameContainer">
-            <img src="ttt.webp" alt="Tic Tac Toe Title" style="width: 20%; height: auto;" class="gameTitle">
+            <img src="dice.webp" alt="Dice Game Title" style="width: 20%; height: auto;" class="gameTitle">
             <div class="game">
 
                 <div class="left">
@@ -56,14 +56,14 @@
                         <br>
                         <span id="rangeValue">7</span>
                         <br><br>
-                        <input type="button" value="Higher Than" class="diceButton" onclick="roll(true)">
+                        <input type="button" value="Higher Than" class="gButton" onclick="roll(true)">
                         <br>
-                        <input type="button" value="Lower Than" class="diceButton" onclick="roll(false)">
+                        <input type="button" value="Lower Than" class="gButton" onclick="roll(false)">
                     </form>
                 </div>
                 <div class="right">
-                    <i id="firstDice"></i>
-                    <i id="secondDice"></i>
+                    <i id="firstDice" class="fa-solid fa-dice-one" style="font-size: 100px; margin-right: 70px;"></i>
+                    <i id="secondDice" class="fa-solid fa-dice-one" style="font-size: 100px;"></i>
                     <p id="diceSum"></p>
                     <p id="diceResult"></p>
                 </div>
@@ -80,8 +80,6 @@
             var second = document.getElementById("secondDice");
             var sum = 0;
             var result = document.getElementById("diceResult");
-            first.style = "font-size: 50px;";
-            second.style = "font-size: 50px;";
             document.getElementById("diceSum").innerHTML = "";
             result.innerHTML = "";
 
@@ -96,7 +94,6 @@
 
             var delay = 500;
 
-            // Start from the last element and count down
             for (let i = diceClasses.length - 1; i >= 0; i--) {
                 setTimeout(function () {
                     first.className = diceClasses[i];
@@ -114,19 +111,15 @@
                 document.getElementById("diceSum").innerHTML = "Sum: " + sum;
                 var rangeValue = parseInt(document.getElementById("rangePick").value);
 
-                if (value) { // If 'Higher Than' is selected
+                if (value) { 
                     if (sum > rangeValue) {
                         result.innerHTML = "You Won!";
-                    } else if (sum == rangeValue) {
-                        result.innerHTML = "You Drawed!";
                     } else {
                         result.innerHTML = "You Lost!";
                     }
-                } else { // If 'Lower Than' is selected
+                } else {
                     if (sum < rangeValue) {
                         result.innerHTML = "You Won!";
-                    } else if (sum == rangeValue) {
-                        result.innerHTML = "You Drawed!";
                     } else {
                         result.innerHTML = "You Lost!";
                     }
