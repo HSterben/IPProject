@@ -55,52 +55,122 @@
                 <div class="right">
                     <table id="tttTable">
                         <tr>
-                            <th onclick="ttt(0,0)"></th>
-                            <th></th>
-                            <th></th>
+                            <th onclick="ttt(0,0)" id="ttt11"></th>
+                            <th onclick="ttt(0,1)" id="ttt12"></th>
+                            <th onclick="ttt(0,2)" id="ttt13"></th>
                         </tr>
                         <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th onclick="ttt(1,0)" id="ttt21"></th>
+                            <th onclick="ttt(1,1)" id="ttt22"></th>
+                            <th onclick="ttt(1,2)" id="ttt23"></th>
                         </tr>
                         <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th onclick="ttt(2,0)" id="ttt31"></th>
+                            <th onclick="ttt(2,1)" id="ttt32"></th>
+                            <th onclick="ttt(2,2)" id="ttt33"></th>
                         </tr>
                     </table>
+                    <p id="tttResult"></p>
                 </div>
             </div>
         </div>
     </main>
     <script>
+        let gameended = false;
         let used = [
-            [true, true, true],
-            [true, true, true],
-            [true, true, true]
+            [false, false, false],
+            [false, false, false],
+            [false, false, false]
         ];
         let placement = [
             ["", "", ""],
             ["", "", ""],
             ["", "", ""]
         ];
+
         function ttt(x, y) {
-            if (array[x, y]) {
-                array[x, y] = false;
-                placement[x,y] = "u";
-                if (!check(x, y)) {
-                    botTurn();
+            if (!gameended) {
+                if (!used[x][y]) {
+                    used[x][y] = true;
+                    placement[x][y] = "X";
+                    updateCell(x, y, "X");
+
+                    if (!check(x, y, "X")) {
+                        botTurn();
+                    } else {
+                        document.getElementById("tttResult").innerHTML = "You Won!";
+                    }
                 }
             }
         }
-        function check(x, y) {
 
+        function check(x, y, player) {
+            for (let i = 0; i < 3; i++) {
+                if (placement[i][0] === player && placement[i][1] ===
+                    player && placement[i][2] === player) {
+                    gameended = true;
+                    return true;
+                }
+            }
+
+            for (let i = 0; i < 3; i++) {
+                if (placement[0][i] === player && placement[1][i] ===
+                    player && placement[2][i] === player) {
+                    gameended = true;
+                    return true;
+                }
+            }
+
+            if (placement[0][0] === player && placement[1][1] ===
+                player && placement[2][2] === player) {
+                gameended = true;
+                return true;
+            }
+            if (placement[0][2] === player && placement[1][1] ===
+                player && placement[2][0] === player) {
+                gameended = true;
+                return true;
+            }
+
+            return false;
         }
-        function botTurn() {
 
+        function botTurn() {
+            let emptyCells = [];
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (!used[i][j]) {
+                        emptyCells.push([i, j]);
+                    }
+                }
+            }
+
+            if (emptyCells.length > 0) {
+                let randomIndex = Math.floor(Math.random() * emptyCells.length);
+                let [i, j] = emptyCells[randomIndex];
+
+                used[i][j] = true;
+                placement[i][j] = "O";
+                updateCell(i, j, "O");
+
+                if (check(i, j, "O")) {
+                    document.getElementById("tttResult").innerHTML = "You Lost!";
+                }
+            }
+        }
+
+
+        function updateCell(x, y, mark) {
+            let cellId = `ttt${x + 1}${y + 1}`;
+            let cell = document.getElementById(cellId);
+            if (cell) {
+                let imgSrc = mark === "X" ? 'tttx.webp' : 'ttto.webp';
+                cell.innerHTML = `<img src="${imgSrc}" alt="${mark}">`;
+            }
         }
     </script>
+
 </body>
 
 </html>

@@ -206,6 +206,7 @@ main {
     height: 300px;
     table-layout: fixed;
     background-color: #22242f;
+    cursor: pointer;
 }
 
 #tttTable th {
