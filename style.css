@@ -97,7 +97,6 @@ main {
 
 .right {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     padding-top: 90px;
@@ -207,10 +206,11 @@ main {
 #tttTable {
     border-collapse: collapse;
     width: 300px;
-    height: 300px;
+    height: 350px;
     table-layout: fixed;
     background-color: #22242f;
     cursor: pointer;
+    margin-top: -55px;
 }
 
 #tttTable th {
@@ -227,4 +227,13 @@ main {
 
 #tttTable tr:last-child th {
     border-bottom: none;
+}
+
+.gameResult{
+    width: 100px;
+    padding-top: 5px;
+}
+
+#diceSum{
+    padding-top: 20px;
 }

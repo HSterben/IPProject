@@ -68,7 +68,7 @@
                         <i id="secondDice" class="fa-solid fa-dice-one" style="font-size: 100px;"></i>
                     </div>
                     <p id="diceSum"></p>
-                    <p id="diceResult"></p>
+                    <img id="diceResult" class="gameResult"></img>
                 </div>
             </div>
         </div>
@@ -81,10 +81,10 @@
         function roll(value) {
             var first = document.getElementById("firstDice");
             var second = document.getElementById("secondDice");
-            var sum = 0;
             var result = document.getElementById("diceResult");
             document.getElementById("diceSum").innerHTML = "";
-            result.innerHTML = "";
+            result.src = "";
+            result.alt = "";
 
             var diceClasses = [
                 "fa-solid fa-dice-one",
@@ -105,34 +105,26 @@
             }
 
             setTimeout(function () {
-                var firstResult = Math.floor(Math.random() * 6);
-                var secondResult = Math.floor(Math.random() * 6);
-                first.className = diceClasses[firstResult];
-                second.className = diceClasses[secondResult];
+                var firstResult = Math.floor(Math.random() * 6) + 1;
+                var secondResult = Math.floor(Math.random() * 6) + 1;
+                first.className = diceClasses[firstResult - 1];
+                second.className = diceClasses[secondResult - 1];
+
+                var sum = firstResult + secondResult;
                 document.getElementById("diceSum").innerHTML = "Sum: " + sum;
-                sum = (firstResult + 1 + secondResult + 1);
-                document.getElementById("diceSum").innerHTML = "Sum: " + sum;
+
                 var rangeValue = parseInt(document.getElementById("rangePick").value);
 
-                if (value) {
-                    if (sum > rangeValue) {
-                        result.innerHTML = "You Won!";
-                        result.style = "color: Green;"
-                    } else {
-                        result.innerHTML = "You Lost!";
-                        result.style = "color: Red;"
-                    }
+                if ((value && sum > rangeValue) || (!value && sum < rangeValue)) {
+                    result.src = "win.webp";
+                    result.alt = "You Won";
                 } else {
-                    if (sum < rangeValue) {
-                        result.innerHTML = "You Won!";
-                        result.style = "color: Green;"
-                    } else {
-                        result.innerHTML = "You Lost!";
-                        result.style = "color: Red;"
-                    }
+                    result.src = "lose.webp";
+                    result.alt = "You Lost";
                 }
             }, diceClasses.length * delay);
         }
+
 
 
 

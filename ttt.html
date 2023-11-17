@@ -49,8 +49,7 @@
             <img src="ttt.webp" alt="Tic Tac Toe Title" style="width: 20%; height: auto;" class="gameTitle">
             <div class="game">
                 <div class="left">
-                    <p>hello there</p>
-                    <p>pick a choice</p>
+                    <input type="button" value="Reset" class="gButton" onclick="reset()">
                 </div>
                 <div class="right">
                     <table id="tttTable">
@@ -70,13 +69,14 @@
                             <th onclick="ttt(2,2)" id="ttt33"></th>
                         </tr>
                     </table>
-                    <p id="tttResult"></p>
+                    <img id="tttResult" class="gameResult"></img>
                 </div>
             </div>
         </div>
     </main>
     <script>
         let gameended = false;
+        var result = document.getElementById("tttResult")
         let used = [
             [false, false, false],
             [false, false, false],
@@ -87,7 +87,33 @@
             ["", "", ""],
             ["", "", ""]
         ];
-
+        function reset() {
+            gameended = false;
+            result.src = "";
+            result.alt = "";
+            used = [
+                [false, false, false],
+                [false, false, false],
+                [false, false, false]
+            ];
+            placement = [
+                ["", "", ""],
+                ["", "", ""],
+                ["", "", ""]
+            ];
+            for (let x = 0; x < 3; x++) {
+                for (let y = 0; y < 3; y++) {
+                    resetCell(x, y, "");
+                }
+            }
+        }
+        function resetCell(x, y, mark) {
+            let cellId = `ttt${x + 1}${y + 1}`;
+            let cell = document.getElementById(cellId);
+            if (cell) {
+                cell.innerHTML = mark ? `<img src="ttt${mark.toLowerCase()}.webp" alt="${mark}">` : "";
+            }
+        }
         function ttt(x, y) {
             if (!gameended) {
                 if (!used[x][y]) {
@@ -98,7 +124,8 @@
                     if (!check(x, y, "X")) {
                         botTurn();
                     } else {
-                        document.getElementById("tttResult").innerHTML = "You Won!";
+                        result.src = "win.webp";
+                        result.alt = "You Won";
                     }
                 }
             }
@@ -155,7 +182,8 @@
                 updateCell(i, j, "O");
 
                 if (check(i, j, "O")) {
-                    document.getElementById("tttResult").innerHTML = "You Lost!";
+                    result.src = "lose.webp";
+                    result.alt = "You Lost";
                 }
             }
         }
