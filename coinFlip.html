@@ -51,10 +51,13 @@
             <div class="game">
                 <div class="left">
                     <p>Coin Side</p>
-                    <p>Heads &nbsp; &nbsp; Tails</p>
-                    <img src="" alt="">
+                    <input type="radio" name="headsOrTails" id="spanH" required><label for="spanH"> <img
+                            src="coinHeads.webp" alt="Heads" style="height: 20px; width: 20px;"> Heads</label> &nbsp;
+                    &nbsp;<input type="radio" name="headsOrTails" id="spanT" required><label for="spanT"> <img
+                            src="coinTails.webp" alt="Tails" style="height: 20px; width: 20px;"> Tails</label>
+                    <br>
+                    <br>
                     <input type="button" class="gButton" onclick="flipCoin()" value="Flip Coin">
-                    <script src="script.js"></script>
                 </div>
                 <div class="right">
                     <div class="coin">
@@ -65,6 +68,7 @@
                             <img src="coinTails.webp" alt="Tails">
                         </div>
                     </div>
+                    <img id="cfResult" class="gameResult" style="margin-top: 40px;">
                 </div>
             </div>
         </div>
@@ -72,21 +76,48 @@
 </body>
 <script>
     const coin = document.querySelector(".coin");
+    const radios = document.getElementsByName("headsOrTails");
+    const result = document.getElementById("cfResult");
 
     function flipCoin() {
         let i = Math.floor(Math.random() * 2);
-
+        let ans = 3;
         coin.style.animation = "none";
 
-        if (i) {
-            setTimeout(function(){
-                coin.style.animation = "spin-heads 3s forwards";
-            }, 100);
-        } else {
-            setTimeout(function(){
-                coin.style.animation = "spin-tails 3s forwards";
-            }, 100);
+        if (radios[0].checked) {
+            ans = 1;
+        } else if (radios[1].checked) {
+            ans = 0;
         }
+        if (ans != 3) {
+            if (i) {
+                setTimeout(function () {
+                    coin.style.animation = "spin-heads 3s forwards";
+                }, 100);
+            } else {
+                setTimeout(function () {
+                    coin.style.animation = "spin-tails 3s forwards";
+                }, 100);
+            }
+            if (i == ans) {
+                setTimeout(function () {
+                    result.src = "win.webp";
+                    result.alt = "You Won";
+                }, 3000);
+            } else {
+                setTimeout(function () {
+                    result.src = "lose.webp";
+                    result.alt = "You Lost";
+                }, 3000);
+            }
+        } else {
+            alert("Please select Heads or Tails")
+        }
+        setTimeout(function () {
+                    result.src = "";
+                    result.alt = "";
+                }, 3900);
+
     }
 </script>
 
