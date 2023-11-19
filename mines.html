@@ -102,7 +102,7 @@
                     </table>
                     <br>
                     <br>
-                    <input type="button" class="gButton" value="Finish" onclick="reset()" style="width: 15%">
+                    <input type="button" class="gButton" value="Finish" onclick="reset(true)" style="width: 15%">
                 </div>
             </div>
         </div>
@@ -160,6 +160,9 @@
                         m.className = "rmv"
                         spot.appendChild(m);
                         selected.push(parseInt(cell));
+                        if (selected.length === 16 - mineSelect.value) {
+                            updateResultTable("Win", mineSelect.value);
+                        }
                     } else {
                         var m = document.createElement("img");
                         m.src = "mine.png";
@@ -170,7 +173,7 @@
                         selected.push(parseInt(cell));
                         start = false;
                         setTimeout(function () {
-                            reset();
+                            reset(false);
                         }, 1000);
                     }
                 }
@@ -189,14 +192,20 @@
             return [...numbers]; //Convert set to array
         }
 
-        function reset() {
+        function reset(reason) {
             var elementsToRemove = document.querySelectorAll('.rmv');
-            updateResultTable("Win")
+            if (reason) {
+                updateResultTable("Win");
+            }
             elementsToRemove.forEach(function (element) {
                 element.parentNode.removeChild(element);
             });
             selected = [];
+            start = false;
+            document.getElementById("Start").disabled = false;
+
         }
+
         function updateResultTable(result) {
             let table = document.querySelector('.resultTable');
             let newRow = table.insertRow(-1);
