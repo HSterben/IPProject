@@ -57,6 +57,7 @@ body {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -71,7 +72,7 @@ main {
     padding: 2%;
     padding-right: 0;
     padding-left: 0;
-    margin-top: 5%;
+    margin-top: 6%;
     background-color: #22242f;
     width: 60%;
     height: 70vh;
@@ -197,12 +198,12 @@ main {
     border-bottom: none;
 }
 
-.gameResult{
+.gameResult {
     width: 100px;
     padding-top: 5px;
 }
 
-#diceSum{
+#diceSum {
     padding-top: 20px;
 }
 
@@ -230,4 +231,43 @@ main {
 
 #mineTable tr:last-child th {
     border-bottom: none;
+}
+
+.gameDescription {
+    background-color: #1c1d27;
+    padding: 2%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 2%;
+    border-radius: 10px;
+    color: #a3a6c2;
+    width: 60%;
+    letter-spacing: 2px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.Description {
+    background-color: #22242f;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: -15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.resultTable {
+    margin-top: 10px;
+    padding: 50px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    visibility: hidden;
+}
+
+.resultTable th,
+.resultTable td {
+    text-align: center;
+    width: 150px;
+    box-sizing: border-box;
+    padding: 10px;
 }

@@ -73,6 +73,31 @@
                 </div>
             </div>
         </div>
+        <div class="gameDescription">
+            <h4>Game Description</h4>
+            <div class="Description">
+                <p>Tic-tac-toe, also known as noughts and crosses or Xs and Os, is a classic two-player game. It's
+                    recognized for its simple structure and is often one of the first strategy games children learn. The
+                    game is played on a 3x3 grid and is well-known for its ease of play and quick rounds.
+                </p>
+            </div>
+            <h4>How to Play</h4>
+            <div class="Description">
+                <p>
+                    yes <!-- https://youtu.be/USEjXNCTvcc?si=YXvATWwKsbMiHIWe -->
+                </p>
+            </div>
+            <div>
+                <table class="resultTable">
+                    <tr>
+                        <th>Game</th>
+                        <th>Player</th>
+                        <th>Result</th>
+                        <th>Selection</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </main>
     <script>
         let gameended = false;
@@ -87,6 +112,7 @@
             ["", "", ""],
             ["", "", ""]
         ];
+
         function reset() {
             gameended = false;
             result.src = "";
@@ -107,6 +133,7 @@
                 }
             }
         }
+
         function resetCell(x, y, mark) {
             let cellId = `ttt${x + 1}${y + 1}`;
             let cell = document.getElementById(cellId);
@@ -114,6 +141,7 @@
                 cell.innerHTML = mark ? `<img src="ttt${mark.toLowerCase()}.webp" alt="${mark}">` : "";
             }
         }
+
         function ttt(x, y) {
             if (!gameended) {
                 if (!used[x][y]) {
@@ -121,11 +149,18 @@
                     placement[x][y] = "X";
                     updateCell(x, y, "X");
 
-                    if (!check(x, y, "X")) {
-                        botTurn();
-                    } else {
+                    if (check(x, y, "X")) {
                         result.src = "win.webp";
                         result.alt = "You Won";
+                        gameended = true;
+                        updateResultTable("Win");
+                    } else if (isDraw()) {
+                        result.src = "draw.webp";
+                        result.alt = "Draw";
+                        gameended = true;
+                        updateResultTable("Draw");
+                    } else {
+                        botTurn();
                     }
                 }
             }
@@ -162,6 +197,17 @@
             return false;
         }
 
+        function isDraw() {
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (placement[i][j] === "") {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         function botTurn() {
             let emptyCells = [];
 
@@ -184,10 +230,16 @@
                 if (check(i, j, "O")) {
                     result.src = "lose.webp";
                     result.alt = "You Lost";
+                    gameended = true;
+                    updateResultTable("Loss");
+                } else if (isDraw()) {
+                    result.src = "draw.webp";
+                    result.alt = "Draw";
+                    gameended = true;
+                    updateResultTable("Draw");
                 }
             }
         }
-
 
         function updateCell(x, y, mark) {
             let cellId = `ttt${x + 1}${y + 1}`;
@@ -197,8 +249,22 @@
                 cell.innerHTML = `<img src="${imgSrc}" alt="${mark}">`;
             }
         }
-    </script>
+        function updateResultTable(result) {
+            let table = document.querySelector('.resultTable');
+            let newRow = table.insertRow(-1);
+            let gameCell = newRow.insertCell(0);
+            let playerCell = newRow.insertCell(1);
+            let resultCell = newRow.insertCell(2);
+            let selectionCell = newRow.insertCell(3);
 
+            gameCell.innerText = 'Tic Tac Toe';
+            playerCell.innerText = 'User';
+            resultCell.innerText = result;
+            selectionCell.innerText = 'N/A';
+            table.style.visibility = 'visible';
+        }
+
+    </script>
 </body>
 
 </html>
