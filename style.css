@@ -171,39 +171,7 @@ main {
     }
 }
 
-
-/* .coin {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: flex;
-    margin-left: 40%;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 1s ease-in-out;
-}
-.side {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    backface-visibility: hidden;
-}
-
-#heads {
-    display: block;
-}
-
-#tails {
-    transform: rotateY(180deg);
-    display: none;
-} */
-
-#tttTable {
+#gameTable {
     border-collapse: collapse;
     width: 300px;
     height: 350px;
@@ -213,7 +181,7 @@ main {
     margin-top: -55px;
 }
 
-#tttTable th {
+#gameTable th {
     width: 33.33%;
     height: 33.33%;
     text-align: center;
@@ -221,11 +189,11 @@ main {
     border-bottom: 1px solid black;
 }
 
-#tttTable th:last-child {
+#gameTable th:last-child {
     border-right: none;
 }
 
-#tttTable tr:last-child th {
+#gameTable tr:last-child th {
     border-bottom: none;
 }
 
@@ -236,4 +204,30 @@ main {
 
 #diceSum{
     padding-top: 20px;
+}
+
+#mineTable {
+    border-collapse: collapse;
+    width: 300px;
+    height: 350px;
+    table-layout: fixed;
+    background-color: #22242f;
+    cursor: pointer;
+    margin-top: -55px;
+}
+
+#mineTable th {
+    width: 33.33%;
+    height: 33.33%;
+    text-align: center;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#mineTable th:last-child {
+    border-right: none;
+}
+
+#mineTable tr:last-child th {
+    border-bottom: none;
 }
