@@ -218,8 +218,8 @@ main {
 }
 
 #mineTable th {
-    width: 33.33%;
-    height: 33.33%;
+    width: 20%;
+    height: 20%;
     text-align: center;
     border-right: 1px solid black;
     border-bottom: 1px solid black;

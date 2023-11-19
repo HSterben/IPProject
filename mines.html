@@ -49,39 +49,126 @@
             <img src="mines.webp" alt="Mines Title" style="width: 15%; height: auto;" class="gameTitle">
             <div class="game">
                 <div class="left">
+                    <form>
+                        <label for="mineSel">Pick number of mines</label>
+                        <select name="mineSel" id="mineSelect" value="1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input type="button" class="gButton" onclick="startMines()" value="Start" style="width: 30%">
+                    </form>
                 </div>
                 <div class="right">
-                    <table id="mineTable" style="max-width: 300px; max-height: auto;">
+                    <table id="mineTable">
                         <tr>
-                            <th onclick="ttt(0,0)" id=""></th>
-                            <th onclick="ttt(0,1)" id=""></th>
-                            <th onclick="ttt(0,2)" id=""></th>
-                            <th onclick="ttt(0,3)" id=""></th>
+                            <th onclick="cell(this)" id="1"></th>
+                            <th onclick="cell(this)" id="2"></th>
+                            <th onclick="cell(this)" id="3"></th>
+                            <th onclick="cell(this)" id="4"></th>
                         </tr>
                         <tr>
-                            <th onclick="ttt(1,0)" id=""></th>
-                            <th onclick="ttt(1,1)" id=""></th>
-                            <th onclick="ttt(1,2)" id=""></th>
-                            <th onclick="ttt(1,3)" id=""></th>
+                            <th onclick="cell(this)" id="5"></th>
+                            <th onclick="cell(this)" id="6"></th>
+                            <th onclick="cell(this)" id="7"></th>
+                            <th onclick="cell(this)" id="8"></th>
                         </tr>
                         <tr>
-                            <th onclick="ttt(2,0)" id=""></th>
-                            <th onclick="ttt(2,1)" id=""></th>
-                            <th onclick="ttt(2,2)" id=""></th>
-                            <th onclick="ttt(2,3)" id=""></th>
+                            <th onclick="cell(this)" id="9"></th>
+                            <th onclick="cell(this)" id="10"></th>
+                            <th onclick="cell(this)" id="11"></th>
+                            <th onclick="cell(this)" id="12"></th>
                         </tr>
                         <tr>
-                            <th onclick="ttt(3,0)" id=""></th>
-                            <th onclick="ttt(3,1)" id=""></th>
-                            <th onclick="ttt(3,2)" id=""></th>
-                            <th onclick="ttt(3,3)" id=""></th>
+                            <th onclick="cell(this)" id="13"></th>
+                            <th onclick="cell(this)" id="14"></th>
+                            <th onclick="cell(this)" id="15"></th>
+                            <th onclick="cell(this)" id="16"></th>
                         </tr>
                     </table>
+                    <br>
+                    <br>
+                    <input type="button" class="gButton" value="Finish" onclick="reset()" style="width: 15%">
                 </div>
             </div>
         </div>
     </main>
     <script>
+        const mineSelect = document.getElementById("mineSelect");
+        var placedMines;
+        var start = false;
+        var selected = [];
+
+        function startMines() {
+
+            placedMines = randomNumbers(1, 16, mineSelect.value);
+            start = true;
+            document.getElementById("Start").disabled = true;
+        }
+
+        function cell(spot) {
+            var cell = spot.id;
+            if (start) {
+                if (!selected.includes(parseInt(cell))) {
+                    if (!placedMines.includes(parseInt(cell))) {
+                        var m = document.createElement("img");
+                        m.src = "safe.png";
+                        m.alt = "safe";
+                        m.className = "rmv"
+                        spot.appendChild(m);
+                        selected.push(parseInt(cell));
+                    } else {
+                        var m = document.createElement("img");
+                        m.src = "mine.png";
+                        m.alt = "mine";
+                        m.className = "rmv"
+                        spot.appendChild(m);
+
+                        selected.push(parseInt(cell));
+                        start = false;
+                        setTimeout(function () {
+                            reset();
+                        }, 1000);
+                    }
+                }
+            } else {
+                alert("Select a value and click start!");
+            }
+
+        }
+
+        function randomNumbers(min, max, count) {
+            let numbers = new Set();
+            while (numbers.size < count) {
+                let number = Math.floor(Math.random() * (max - min + 1)) + min;
+                numbers.add(number);
+            }
+            return [...numbers]; //Convert set to array
+        }
+
+        function reset() {
+            var elementsToRemove = document.querySelectorAll('.rmv');
+
+            elementsToRemove.forEach(function (element) {
+                element.parentNode.removeChild(element);
+            });
+            selected = [];
+        }
+
     </script>
 </body>
 
