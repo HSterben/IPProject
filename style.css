@@ -197,16 +197,17 @@ main {
     border-bottom: none;
 }
 
-.gameResult{
+.gameResult {
     width: 100px;
     padding-top: 5px;
 }
 
-#diceSum{
+#diceSum {
     padding-top: 20px;
 }
 
 #mineTable {
+    border-collapse: collapse;
     width: 300px;
     height: 350px;
     table-layout: fixed;
@@ -216,6 +217,8 @@ main {
 }
 
 #mineTable th {
+    width: 20%;
+    height: 20%;
     text-align: center;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -227,9 +230,4 @@ main {
 
 #mineTable tr:last-child th {
     border-bottom: none;
-}
-
-#mineTable td {
-    width: 93px;
-    height: 93px;
 }

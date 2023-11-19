@@ -70,7 +70,7 @@
                         </select>
                         <br>
                         <br>
-                        <input type="button" class="gButton" onclick="startMines()" value="Start">
+                        <input type="button" class="gButton" onclick="startMines()" value="Start" style="width: 30%">
                     </form>
                 </div>
                 <div class="right">
@@ -100,6 +100,9 @@
                             <th onclick="cell(this)" id="16"></th>
                         </tr>
                     </table>
+                    <br>
+                    <br>
+                    <input type="button" class="gButton" value="Finish" onclick="reset()" style="width: 15%">
                 </div>
             </div>
         </div>
@@ -108,6 +111,7 @@
         const mineSelect = document.getElementById("mineSelect");
         var placedMines;
         var start = false;
+        var selected = [];
 
         function startMines() {
 
@@ -117,20 +121,29 @@
         }
 
         function cell(spot) {
-            
+            var cell = spot.id;
             if (start) {
-                if (!placedMines.includes(parseInt(spot.id))) {
-                    var m = document.createElement("img");
-                    m.src = "safe.png";
-                    m.alt = "safe";
-                    spot.appendChild(m);
-                } else {
-                    var m = document.createElement("img");
-                    m.src = "safe.png";
-                    m.alt = "safe";
-                    spot.appendChild(m);
+                if (!selected.includes(parseInt(cell))) {
+                    if (!placedMines.includes(parseInt(cell))) {
+                        var m = document.createElement("img");
+                        m.src = "safe.png";
+                        m.alt = "safe";
+                        m.className = "rmv"
+                        spot.appendChild(m);
+                        selected.push(parseInt(cell));
+                    } else {
+                        var m = document.createElement("img");
+                        m.src = "mine.png";
+                        m.alt = "mine";
+                        m.className = "rmv"
+                        spot.appendChild(m);
 
-                    document.getElementById("Start").disabled = false;
+                        selected.push(parseInt(cell));
+                        start = false;
+                        setTimeout(function () {
+                            reset();
+                        }, 1000);
+                    }
                 }
             } else {
                 alert("Select a value and click start!");
@@ -147,6 +160,14 @@
             return [...numbers]; //Convert set to array
         }
 
+        function reset() {
+            var elementsToRemove = document.querySelectorAll('.rmv');
+
+            elementsToRemove.forEach(function (element) {
+                element.parentNode.removeChild(element);
+            });
+            selected = [];
+        }
 
     </script>
 </body>
