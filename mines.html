@@ -100,8 +100,7 @@
                             <th onclick="cell(this)" id="16"></th>
                         </tr>
                     </table>
-                    <br>
-                    <br>
+                    <img id="mineResult" class="gameResult" style="margin-top: 30px;">
                     <input type="button" class="gButton" value="Finish" onclick="reset(true)" style="width: 15%">
                 </div>
             </div>
@@ -137,6 +136,7 @@
         </div>
     </main>
     <script>
+        const result = document.getElementById("mineResult");
         const mineSelect = document.getElementById("mineSelect");
         var placedMines;
         var start = false;
@@ -175,6 +175,8 @@
                         setTimeout(function () {
                             reset(false);
                         }, 1000);
+                        result.src = "lose.webp";
+                        result.alt = "You Lost";
                     }
                 }
             } else {
@@ -203,7 +205,6 @@
             selected = [];
             start = false;
             document.getElementById("Start").disabled = false;
-
         }
 
         function updateResultTable(result) {

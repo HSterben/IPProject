@@ -3,6 +3,7 @@
 }
 
 nav {
+    z-index: 10;
     letter-spacing: 2px;
     font-size: 20px;
     position: fixed;
@@ -48,10 +49,8 @@ body {
     margin-top: 1.4%;
     text-align: center;
     overflow: hidden;
-    background-image: url('path_to_your_image.jpg');
     background-size: cover;
     background-position: center top;
-    /* Adjust this as needed */
     border-radius: 15px;
 }
 
