@@ -160,9 +160,6 @@
                         m.className = "rmv"
                         spot.appendChild(m);
                         selected.push(parseInt(cell));
-                        if (selected.length === 16 - mineSelect.value) {
-                            updateResultTable("Win", mineSelect.value);
-                        }
                     } else {
                         var m = document.createElement("img");
                         m.src = "mine.png";
@@ -196,15 +193,23 @@
 
         function reset(reason) {
             var elementsToRemove = document.querySelectorAll('.rmv');
-            if (reason) {
+            if (reason && selected.length > 0) {
                 updateResultTable("Win");
+                result.src = "win.webp";
+                result.alt = "You Won";
+                setTimeout(function () {
+                    result.src = "";
+                    result.alt = "";
+                }, 1000);
             }
             elementsToRemove.forEach(function (element) {
                 element.parentNode.removeChild(element);
             });
             selected = [];
+
             start = false;
             document.getElementById("Start").disabled = false;
+
         }
 
         function updateResultTable(result) {
