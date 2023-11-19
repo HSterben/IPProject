@@ -106,6 +106,31 @@
                 </div>
             </div>
         </div>
+        <div class="gameDescription">
+            <h4>Game Description</h4>
+            <div class="Description">
+                <p>Tic-tac-toe, also known as noughts and crosses or Xs and Os, is a classic two-player game. It's
+                    recognized for its simple structure and is often one of the first strategy games children learn. The
+                    game is played on a 3x3 grid and is well-known for its ease of play and quick rounds.
+                </p>
+            </div>
+            <h4>How to Play</h4>
+            <div class="Description">
+                <p>
+                    yes <!-- https://youtu.be/USEjXNCTvcc?si=YXvATWwKsbMiHIWe -->
+                </p>
+            </div>
+            <div>
+                <table class="resultTable">
+                    <tr>
+                        <th>Game</th>
+                        <th>Player</th>
+                        <th>Result</th>
+                        <th>Selection</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </main>
     <script>
         const mineSelect = document.getElementById("mineSelect");
@@ -137,7 +162,7 @@
                         m.alt = "mine";
                         m.className = "rmv"
                         spot.appendChild(m);
-
+                        updateResultTable("Loss");
                         selected.push(parseInt(cell));
                         start = false;
                         setTimeout(function () {
@@ -162,13 +187,26 @@
 
         function reset() {
             var elementsToRemove = document.querySelectorAll('.rmv');
-
+            updateResultTable("Win")
             elementsToRemove.forEach(function (element) {
                 element.parentNode.removeChild(element);
             });
             selected = [];
         }
+        function updateResultTable(result) {
+            let table = document.querySelector('.resultTable');
+            let newRow = table.insertRow(-1);
+            let gameCell = newRow.insertCell(0);
+            let playerCell = newRow.insertCell(1);
+            let resultCell = newRow.insertCell(2);
+            let selectionCell = newRow.insertCell(3);
 
+            gameCell.innerText = 'Mines';
+            playerCell.innerText = 'User';
+            resultCell.innerText = result;
+            selectionCell.innerText = mineSelect.value;
+            table.style.visibility = 'visible';
+        }
     </script>
 </body>
 

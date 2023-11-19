@@ -72,6 +72,31 @@
                 </div>
             </div>
         </div>
+        <div class="gameDescription">
+            <h4>Game Description</h4>
+            <div class="Description">
+                <p>Tic-tac-toe, also known as noughts and crosses or Xs and Os, is a classic two-player game. It's
+                    recognized for its simple structure and is often one of the first strategy games children learn. The
+                    game is played on a 3x3 grid and is well-known for its ease of play and quick rounds.
+                </p>
+            </div>
+            <h4>How to Play</h4>
+            <div class="Description">
+                <p>
+                    yes <!-- https://youtu.be/USEjXNCTvcc?si=YXvATWwKsbMiHIWe -->
+                </p>
+            </div>
+            <div>
+                <table class="resultTable">
+                    <tr>
+                        <th>Game</th>
+                        <th>Player</th>
+                        <th>Result</th>
+                        <th>Selection</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </main>
     <script>
         function updaterange(value) {
@@ -118,11 +143,27 @@
                 if ((value && sum > rangeValue) || (!value && sum < rangeValue)) {
                     result.src = "win.webp";
                     result.alt = "You Won";
+                    updateResultTable("Win")
                 } else {
                     result.src = "lose.webp";
                     result.alt = "You Lost";
+                    updateResultTable("Loss")
                 }
             }, diceClasses.length * delay);
+        }
+        function updateResultTable(result) {
+            let table = document.querySelector('.resultTable');
+            let newRow = table.insertRow(-1);
+            let gameCell = newRow.insertCell(0);
+            let playerCell = newRow.insertCell(1);
+            let resultCell = newRow.insertCell(2);
+            let selectionCell = newRow.insertCell(3);
+
+            gameCell.innerText = 'Dice Roll';
+            playerCell.innerText = 'User';
+            resultCell.innerText = result;
+            selectionCell.innerText = document.getElementById("rangePick").value;
+            table.style.visibility = 'visible';
         }
     </script>
 </body>
