@@ -7,7 +7,8 @@ nav {
     letter-spacing: 2px;
     font-size: 20px;
     position: fixed;
-    margin: -0.7%;
+    margin: -1.4%;
+    margin-top: -65px;
     margin-bottom: 1.7%;
     display: flex;
     padding: 1%;
@@ -18,6 +19,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 90%;
+    height: 60px;
 }
 
 .nav-container {
@@ -41,17 +43,20 @@ body {
     background-color: #13151b;
     text-align: center;
     align-items: center;
+    padding-top: 60px;
 }
 
 .welcome {
-    width: 100%;
-    height: 300px;
-    margin-top: 1.4%;
+    width: 97%;
+    margin-left: 1%;
+    margin-top: 60px;
+    padding-top: 30px;
     text-align: center;
     overflow: hidden;
     background-size: cover;
     background-position: center top;
     border-radius: 15px;
+    background-color: #22242f;
 }
 
 main {
