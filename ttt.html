@@ -246,7 +246,7 @@
             let cell = document.getElementById(cellId);
             if (cell) {
                 let imgSrc = mark === "X" ? 'tttx.webp' : 'ttto.webp';
-                cell.innerHTML = `<img src="${imgSrc}" alt="${mark}">`;
+                cell.innerHTML = `<img src="${imgSrc}" alt="${mark} class="tttpick">`;
             }
         }
         function updateResultTable(result) {

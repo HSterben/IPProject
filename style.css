@@ -449,6 +449,16 @@ main {
 
 
 @media only screen and (max-width: 600px) {
+
+    .tttpick {
+        width: 5px;
+        height: 5px;
+    }
+
+    .accountContainer {
+        padding: 50px;
+    }
+
     .logo {
         max-width: 90px;
         height: 40px;
