@@ -634,6 +634,7 @@ main {
 
     body {
         padding-top: 60px;
+        height: auto;
     }
 
     .welcome {
@@ -661,8 +662,8 @@ main {
         padding-right: 0;
         padding-left: 0;
         margin-top: 6%;
-        width: 60%;
-        height: 47vh;
+        width: 90%;
+        height: 53vh;
     }
 
     .game {
@@ -672,13 +673,12 @@ main {
 
 
     .left {
-        padding-top: 40px;
         width: 30%;
     }
 
     .right {
         padding-top: 90px;
-        height: 45vh;
+        height: 35vh;
         width: 70%;
     }
 
@@ -726,11 +726,11 @@ main {
     }
 
     .gameDescription {
-        width: 60%;
+        width: 90%;
         padding: 2%;
         padding-right: 10px;
         padding-left: 10px;
-        margin-top: 2%;
+        margin-top: 5%;
     }
 
     .Description {
