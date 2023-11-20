@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav>
-            <a href="index.html"><img src="logo.webp" alt="Logo" style="width: 180px"></a>
+            <a href="index.html"><img src="logo.webp" alt="Logo" style="width: 180px" class="welcomePic"></a>
             <div class="nav-container">
                 <a class="gameLink" href="ttt.html">
                     <i class="fa fa-times" aria-hidden="true"></i>
@@ -46,7 +46,7 @@
     </header>
     <main>
         <div class="gameContainer">
-            <img src="ttt.webp" alt="Tic Tac Toe Title" style="width: 20%; height: auto;" class="gameTitle">
+            <img src="ttt.webp" alt="Tic Tac Toe Title" style="width: 25%; height: auto;" class="gameTitle">
             <div class="game">
                 <div class="left">
                     <input type="button" value="Reset" class="gButton" onclick="reset()">
@@ -246,7 +246,7 @@
             let cell = document.getElementById(cellId);
             if (cell) {
                 let imgSrc = mark === "X" ? 'tttx.webp' : 'ttto.webp';
-                cell.innerHTML = `<img src="${imgSrc}" alt="${mark}">`;
+                cell.innerHTML = `<img src="${imgSrc}" alt="${mark}" class="XO">`;
             }
         }
         function updateResultTable(result) {
