@@ -45,15 +45,18 @@
         </nav>
     </header>
     <main>
-        <div class="gameContainer" style="margin-top: 155px; width: 40%">
+        <div class="gameContainer" style="width: 40%">
             <h2 style="color:white; letter-spacing: 3px; text-shadow: 3px 3px 2px black">Account Creation</h2>
-            <form id="account"  onsubmit="return validateForm()">
+            <form id="account" onsubmit="return validateForm()">
                 <label for="fName">First Name: </label>&nbsp;&nbsp;<input type="text" id="fName"><br>
                 <label for="lName">Last Name: </label>&nbsp;&nbsp;<input type="text" id="lName"><br>
                 <label for="user">Username: </label>&nbsp;&nbsp;<input type="text" id="user" required><br>
-                <label for="pass">Password: </label>&nbsp;&nbsp;<input type="password" id="pass" style="width: 25%" required><br>
-                <label for="pass2">Password (Confirm): </label>&nbsp;&nbsp;<input type="password" id="pass2" style="width: 25%" required><br>
-                <label for="email">Email: </label>&nbsp;&nbsp;<input type="text" id="email" style="width: 30%" required><br>
+                <label for="pass">Password: </label>&nbsp;&nbsp;<input type="password" id="pass" style="width: 25%"
+                    required><br>
+                <label for="pass2">Password (Confirm): </label>&nbsp;&nbsp;<input type="password" id="pass2"
+                    style="width: 25%" required><br>
+                <label for="email">Email: </label>&nbsp;&nbsp;<input type="text" id="email" style="width: 30%"
+                    required><br>
 
                 <p class="error" id="passwordError"></p>
 
@@ -72,7 +75,7 @@
                 return false;
             } else {
                 passwordError.textContent = "";
-                alert("Account created!"); 
+                alert("Account created!");
                 return true;
             }
         }

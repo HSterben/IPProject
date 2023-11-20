@@ -303,3 +303,61 @@ main {
     letter-spacing: 2.5px;
     text-shadow: 2px 2px 2px black;
 }
+
+.gameSelectContainer {
+    width: 97%;
+    margin-left: 1%;
+    margin-top: 60px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center top;
+    border-radius: 15px;
+    background-color: #22242f;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gameSelectContainer a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.gameSelect {
+    width: 10%;
+    margin: 10px;
+    padding: 20px;
+    background: linear-gradient(45deg, #393e5a 50%, #4e97ff 50%);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gameSelect:hover {
+    transform: scale(1.05);
+}
+
+#registerBtn {
+    color: white;
+    background-color: #4483eb;
+    padding: 5px;
+    width: 150px;
+    margin: 5px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    transition: transform 0.15s;
+    margin-bottom: 25px;
+}
+
+#registerBtn:hover {
+    background-color: #4e97ff;
+    transform: scale(1.05);
+}
+
+.buttonWrapper {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
