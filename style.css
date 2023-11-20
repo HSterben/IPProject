@@ -1,6 +1,7 @@
 @media only screen and (min-width: 901px) {
     nav {
         font-size: 20px;
+        letter-spacing: 2px;
         margin: -1.4%;
         margin-top: -65px;
         margin-bottom: 1.7%;
@@ -159,7 +160,6 @@
 
 nav {
     z-index: 10;
-    letter-spacing: 2px;
     position: fixed;
     display: flex;
     background-color: #181921;
@@ -218,6 +218,11 @@ main {
     border-radius: 10px;
 }
 
+.accountContainer {
+    background-color: #22242f;
+    border-radius: 10px;
+}
+
 .game {
     color: white;
     display: flex;
@@ -233,6 +238,18 @@ main {
     align-items: center;
     flex-direction: column;
     border-left: solid #393e5a 2px;
+}
+
+.accButton {
+    color: white;
+    background-color: #4483eb;
+    letter-spacing: 2px;
+    transition: transform 0.15s;
+}
+
+.accButton:hover {
+    background-color: #4e97ff;
+    transform: scale(1.05);
 }
 
 .gButton {
@@ -588,7 +605,7 @@ main {
 
 @media only screen and (min-width: 601px) and (max-width: 900px) {
     nav {
-        font-size: 20px;
+        font-size: 15px;
         margin: -1.4%;
         margin-top: -65px;
         margin-bottom: 1.7%;
@@ -606,8 +623,21 @@ main {
     .welcome {
         width: 97%;
         margin-left: 1%;
-        margin-top: 60px;
-        padding-top: 30px;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .accountContainer {
+        padding: 2%;
+        padding-right: 0;
+        padding-left: 0;
+        margin-top: 6%;
+        width: 60%;
+        height: 47vh;
+    }
+
+    .accountContainer h2 {
+        font-size: 19px;
     }
 
     .gameContainer {
@@ -616,7 +646,7 @@ main {
         padding-left: 0;
         margin-top: 6%;
         width: 60%;
-        height: 70vh;
+        height: 47vh;
     }
 
     .game {
@@ -713,30 +743,42 @@ main {
         height: 100%;
     }
 
+    #account {
+        font-size: 15px;
+    }
+
     #account input {
-        margin-top: 55px;
+        margin-top: 25px;
         border-radius: 5px;
+        width: 150px;
+    }
+
+    .accButton {
+        padding: 5px;
+        width: 150px;
+        font-size: 17px;
     }
 
     .gameSelectContainer {
         width: 97%;
         margin-left: 1%;
-        margin-top: 60px;
+        margin-top: 30px;
         padding-top: 30px;
         padding-bottom: 20px;
+        font-size: 14px;
     }
 
     .gameSelect {
-        width: 10%;
+        width: 14%;
         margin: 10px;
-        padding: 20px;
+        padding: 10px;
     }
 
     #registerBtn {
-        padding: 5px;
+        padding: 3px;
         width: 150px;
-        margin: 5px;
-        margin-bottom: 25px;
-        font-size: 17px;
+        margin: 3px;
+        margin-bottom: 18px;
+        font-size: 14px;
     }
 }
