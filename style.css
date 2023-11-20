@@ -1,3 +1,97 @@
+@media only screen and (min-width: 901px) {
+    nav {
+        font-size: 20px;
+        margin: -1.4%;
+        margin-top: -65px;
+        margin-bottom: 1.7%;
+        padding: 1%;
+        padding-left: 2%;
+        padding-right: 10%;
+        width: 90%;
+        height: 60px;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
+    .welcome {
+        width: 97%;
+        margin-left: 1%;
+        margin-top: 60px;
+        padding-top: 30px;
+    }
+
+    .gameContainer {
+        padding: 2%;
+        padding-right: 0;
+        padding-left: 0;
+        margin-top: 6%;
+        width: 60%;
+        height: 70vh;
+    }
+
+    .game {
+        margin-top: 2%;
+        width: 100%;
+    }
+
+
+    .left {
+        padding-top: 40px;
+        width: 30%;
+    }
+
+    .right {
+        padding-top: 90px;
+        height: 45vh;
+        width: 70%;
+    }
+
+    #diceForm {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .gButton {
+        padding: 5px;
+        width: 150px;
+        margin: 5px;
+        font-size: 17px;
+    }
+
+    .coin {
+        height: 150px;
+        width: 150px;
+    }
+
+    #gameTable {
+        width: 300px;
+        height: 350px;
+        margin-top: -55px;
+    }
+
+    .gameResult {
+        width: 100px;
+        padding-top: 5px;
+    }
+
+    #diceSum {
+        padding-top: 20px;
+    }
+
+    #mineTable {
+        width: 300px;
+        height: 350px;
+        margin-top: -55px;
+    }
+
+    #mineTable th {
+        width: 20%;
+        height: 20%;
+    }
+}
+
 * {
     font-family: fantasy;
 }
@@ -5,21 +99,12 @@
 nav {
     z-index: 10;
     letter-spacing: 2px;
-    font-size: 20px;
     position: fixed;
-    margin: -1.4%;
-    margin-top: -65px;
-    margin-bottom: 1.7%;
     display: flex;
-    padding: 1%;
-    padding-left: 2%;
-    padding-right: 10%;
     background-color: #181921;
     border-radius: 10px;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    height: 60px;
 }
 
 .nav-container {
@@ -43,14 +128,9 @@ body {
     background-color: #13151b;
     text-align: center;
     align-items: center;
-    padding-top: 60px;
 }
 
 .welcome {
-    width: 97%;
-    margin-left: 1%;
-    margin-top: 60px;
-    padding-top: 30px;
     text-align: center;
     overflow: hidden;
     background-size: cover;
@@ -73,13 +153,7 @@ main {
 }
 
 .gameContainer {
-    padding: 2%;
-    padding-right: 0;
-    padding-left: 0;
-    margin-top: 6%;
     background-color: #22242f;
-    width: 60%;
-    height: 70vh;
     border-radius: 10px;
 }
 
@@ -88,41 +162,26 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2%;
-    width: 100%;
     background-color: #1c1d27;
     border-top: solid #393e5a 2px;
     border-bottom: solid #393e5a 2px;
-}
-
-.left {
-    padding-top: 40px;
-    width: 30%;
 }
 
 .right {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 90px;
-    height: 45vh;
-    width: 70%;
     border-left: solid #393e5a 2px;
 }
 
 #diceForm {
     padding: 10px;
     font-size: 15px;
-    letter-spacing: 1px;
 }
 
 .gButton {
     color: white;
     background-color: #4483eb;
-    padding: 5px;
-    width: 150px;
-    margin: 5px;
-    font-size: 17px;
     letter-spacing: 2px;
     transition: transform 0.15s;
 }
@@ -133,8 +192,6 @@ main {
 }
 
 .coin {
-    height: 150px;
-    width: 150px;
     position: relative;
     transform-style: preserve-3d;
 }
@@ -178,12 +235,9 @@ main {
 
 #gameTable {
     border-collapse: collapse;
-    width: 300px;
-    height: 350px;
     table-layout: fixed;
     background-color: #22242f;
     cursor: pointer;
-    margin-top: -55px;
 }
 
 #gameTable th {
@@ -202,23 +256,11 @@ main {
     border-bottom: none;
 }
 
-.gameResult {
-    width: 100px;
-    padding-top: 5px;
-}
-
-#diceSum {
-    padding-top: 20px;
-}
-
 #mineTable {
     border-collapse: collapse;
-    width: 300px;
-    height: 350px;
     table-layout: fixed;
     background-color: #22242f;
     cursor: pointer;
-    margin-top: -55px;
 }
 
 #mineTable th {
@@ -361,3 +403,9 @@ main {
     display: flex;
     justify-content: center;
 }
+
+
+
+@media only screen and (max-width: 600px) {}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {}
