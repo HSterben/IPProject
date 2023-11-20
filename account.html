@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sterboozie Games | Create Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="logo.webp" alt="Logo" style="width: 180px"></a>
+            <div class="nav-container">
+                <a class="gameLink" href="ttt.html">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    &nbsp; Tic-Tac-Toe &nbsp;
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="nav-container">
+                <a class="gameLink" href="mines.html">
+                    <i class="fa fa-bomb" aria-hidden="true"></i>
+                    &nbsp; Mines &nbsp;
+                    <i class="fa fa-bomb" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="nav-container">
+                <a class="gameLink" href="dice.html">
+                    <i class="fas fa-dice"></i>
+                    Dice
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="nav-container">
+                <a class="gameLink" href="coinFlip.html">
+                    <i class="fas fa-coins"></i>
+                    &nbsp; Coin Flip &nbsp;
+                    <i class="fas fa-coins"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="gameContainer" style="margin-top: 155px; width: 40%">
+            <h2 style="color:white; letter-spacing: 3px; text-shadow: 3px 3px 2px black">Account Creation</h2>
+            <form id="account"  onsubmit="return validateForm()">
+                <label for="fName">First Name: </label>&nbsp;&nbsp;<input type="text" id="fName"><br>
+                <label for="lName">Last Name: </label>&nbsp;&nbsp;<input type="text" id="lName"><br>
+                <label for="user">Username: </label>&nbsp;&nbsp;<input type="text" id="user" required><br>
+                <label for="pass">Password: </label>&nbsp;&nbsp;<input type="password" id="pass" style="width: 25%" required><br>
+                <label for="pass2">Password (Confirm): </label>&nbsp;&nbsp;<input type="password" id="pass2" style="width: 25%" required><br>
+                <label for="email">Email: </label>&nbsp;&nbsp;<input type="text" id="email" style="width: 30%" required><br>
+
+                <p class="error" id="passwordError"></p>
+
+                <input class="gButton" type="submit" style="margin-top: 70px;">
+            </form>
+        </div>
+    </main>
+    <script>
+        function validateForm() {
+            const pass1 = document.getElementById("pass").value;
+            const pass2 = document.getElementById("pass2").value;
+            const passwordError = document.getElementById("passwordError");
+
+            if (pass1 !== pass2) {
+                passwordError.textContent = "Passwords do not match";
+                return false;
+            } else {
+                passwordError.textContent = "";
+                alert("Account created!"); 
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>
