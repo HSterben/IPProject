@@ -90,6 +90,65 @@
         width: 20%;
         height: 20%;
     }
+
+    .gameDescription {
+        width: 60%;
+        padding: 2%;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-top: 2%;
+    }
+
+    .Description {
+        padding: 10px;
+        margin-top: -15px;
+    }
+    
+    .resultTable {
+        margin-top: 10px;
+        padding: 50px;
+    }
+    
+    .resultTable th,
+    .resultTable td {
+        width: 150px;
+        padding: 10px;
+    }
+    
+    .video-container {
+        padding-top: 56.25%;
+    }
+    
+    .responsive-iframe {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #account input {
+        margin-top: 55px;
+        border-radius: 5px;
+    }
+    
+    .gameSelectContainer {
+        width: 97%;
+        margin-left: 1%;
+        margin-top: 60px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .gameSelect {
+        width: 10%;
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    #registerBtn {
+        padding: 5px;
+        width: 150px;
+        margin: 5px;
+        margin-bottom: 25px;
+    }
 }
 
 * {
@@ -264,8 +323,6 @@ main {
 }
 
 #mineTable th {
-    width: 20%;
-    height: 20%;
     text-align: center;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -281,13 +338,8 @@ main {
 
 .gameDescription {
     background-color: #1c1d27;
-    padding: 2%;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-top: 2%;
     border-radius: 10px;
     color: #a3a6c2;
-    width: 60%;
     letter-spacing: 2.4px;
     text-align: left;
     box-sizing: border-box;
@@ -297,15 +349,11 @@ main {
 .Description {
     background-color: #22242f;
     box-sizing: border-box;
-    padding: 10px;
-    margin-top: -15px;
     text-align: left;
     font-size: 14px;
 }
 
 .resultTable {
-    margin-top: 10px;
-    padding: 50px;
     border-collapse: collapse;
     table-layout: fixed;
     visibility: hidden;
@@ -314,15 +362,12 @@ main {
 .resultTable th,
 .resultTable td {
     text-align: center;
-    width: 150px;
     box-sizing: border-box;
-    padding: 10px;
 }
 
 .video-container {
     position: relative;
     overflow: hidden;
-    padding-top: 56.25%;
     /* 16:9 Aspect Ratio */
 }
 
@@ -330,13 +375,10 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     border: 0;
 }
 
 #account input {
-    margin-top: 55px;
     border-radius: 5px;
 }
 
@@ -347,11 +389,6 @@ main {
 }
 
 .gameSelectContainer {
-    width: 97%;
-    margin-left: 1%;
-    margin-top: 60px;
-    padding-top: 30px;
-    padding-bottom: 20px;
     text-align: center;
     overflow: hidden;
     background-size: cover;
@@ -369,9 +406,6 @@ main {
 }
 
 .gameSelect {
-    width: 10%;
-    margin: 10px;
-    padding: 20px;
     background: linear-gradient(45deg, #393e5a 50%, #4e97ff 50%);
     border-radius: 10px;
     transition: transform 0.3s;
@@ -384,13 +418,9 @@ main {
 #registerBtn {
     color: white;
     background-color: #4483eb;
-    padding: 5px;
-    width: 150px;
-    margin: 5px;
     font-size: 17px;
     letter-spacing: 2px;
     transition: transform 0.15s;
-    margin-bottom: 25px;
 }
 
 #registerBtn:hover {
