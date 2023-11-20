@@ -12,6 +12,19 @@
         height: 60px;
     }
 
+    .fa-dice-one,
+    .fa-dice-two,
+    .fa-dice-three,
+    .fa-dice-four,
+    .fa-dice-five,
+    .fa-dice-six {
+        font-size: 100px;
+    }
+
+    .accountContainer {
+        margin-top: 60px;
+    }
+
     body {
         padding-top: 60px;
     }
@@ -52,6 +65,13 @@
     #diceForm {
         padding: 10px;
         font-size: 15px;
+    }
+
+    .accButton {
+        padding: 5px;
+        width: 150px;
+        margin: 5px;
+        font-size: 17px;
     }
 
     .gButton {
@@ -449,28 +469,14 @@ main {
 
 
 @media only screen and (max-width: 600px) {
-
-    .tttpick {
-        width: 5px;
-        height: 5px;
-    }
-
-    .accountContainer {
-        padding: 50px;
-    }
-
-    .logo {
-        max-width: 90px;
-        height: 40px;
-    }
-
     nav {
         font-size: 9px;
         margin: -1.4%;
         margin-top: -65px;
         margin-bottom: 1.7%;
-        padding: 1.5%;
+        padding: 1%;
         padding-left: 2%;
+        padding-right: 10%;
         width: 90%;
         height: 60px;
     }
@@ -539,11 +545,7 @@ main {
 
     #diceForm {
         padding: 10px;
-        font-size: 10px;
-    }
-
-    .XO {
-        max-width: 30px;
+        font-size: 15px;
     }
 
     .XO {
@@ -553,12 +555,12 @@ main {
     .gButton {
         padding: 3px;
         width: 80px;
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .coin {
-        height: 90px;
-        width: 90px;
+        width: 92px;
+        height: 100px;
     }
 
     #gameTable {
@@ -578,12 +580,12 @@ main {
 
 
     .gameResult {
-        width: 60px;
+        width: 50px;
         padding: 8px;
     }
 
     #diceSum {
-        padding-top: 20px;
+        font-size: 10px;
     }
 
     #mineTable {
@@ -602,12 +604,8 @@ main {
     }
 
     #mineTable th {
-        width: 10px;
-        height: 10px;
-    }
-
-    #mineSelect {
-        font-size: 10px;
+        width: 20%;
+        height: 20%;
     }
 
     #mineSelect {
@@ -625,17 +623,17 @@ main {
     .Description {
         padding: 10px;
         margin-top: -15px;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .resultTable {
         margin-top: 10px;
-        padding: 15px;
+        padding: 50px;
     }
 
     .resultTable th,
     .resultTable td {
-        width: 90px;
+        width: 150px;
         padding: 10px;
     }
 
@@ -713,6 +711,15 @@ main {
         margin-left: 1%;
         margin-top: 20px;
         padding-top: 20px;
+    }
+
+    .fa-dice-one,
+    .fa-dice-two,
+    .fa-dice-three,
+    .fa-dice-four,
+    .fa-dice-five,
+    .fa-dice-six {
+        font-size: 100px;
     }
 
     .accountContainer {
