@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sterboozie Games | Create Account</title>
+    <title>Sterboozie Games | Login</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -46,20 +46,12 @@
     </header>
     <main>
         <div class="accountContainer" style="width: 40%">
-            <h2 style="color:white; letter-spacing: 3px; text-shadow: 3px 3px 2px black">Account Creation</h2>
-            <form id="account" onsubmit="return validateForm()">
-                <label for="fName">First Name: </label>&nbsp;&nbsp;
-                <input type="text" id="fName"><br>
-                <label for="lName">Last Name: </label>&nbsp;&nbsp;
-                <input type="text" id="lName"><br>
+            <h2 style="color:white; letter-spacing: 3px; text-shadow: 3px 3px 2px black">Login</h2>
+            <form id="account" onsubmit="return login()">
                 <label for="user">Username: </label>&nbsp;&nbsp;
                 <input type="text" id="user" required><br>
                 <label for="pass">Password: </label>&nbsp;&nbsp;
                 <input type="password" id="pass" required><br>
-                <label for="pass2">Password (Confirm): </label>&nbsp;&nbsp;<input type="password" id="pass2"
-                    required><br>
-                <label for="email">Email: </label>&nbsp;&nbsp;<input type="text" id="email" required><br>
-
                 <p class="error" id="passwordError"></p>
 
                 <input class="accButton" type="submit" style="margin-top: 70px;">
@@ -67,38 +59,26 @@
         </div>
     </main>
     <script>
-        function validateForm() {
+        function login() {
             event.preventDefault();
 
             const usernameInput = document.getElementById("user").value;
-            const pass1 = document.getElementById("pass").value;
-            const pass2 = document.getElementById("pass2").value;
-            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("pass").value;
             const passwordError = document.getElementById("passwordError");
 
             fetch('users.json')
                 .then(response => response.json())
                 .then(users => {
-                    const usernameExists = users.some(u => u.username === usernameInput);
-                    if (usernameExists) {
-                        passwordError.textContent = "Username already exists";
+                    const user = users.find(u => u.username === usernameInput);
+                    if (user && user.password === passwordInput) {
+                        passwordError.textContent = "";
+                        localStorage.setItem('username', usernameInput);
+                        alert("Login successful!");
+                        window.location.href = 'index.html';
+                    } else {
+                        passwordError.textContent = "Invalid username or password";
                         return false;
                     }
-
-                    if (pass1 !== pass2) {
-                        passwordError.textContent = "Passwords do not match";
-                        return false;
-                    }
-
-                    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-                    if (!emailRegex.test(emailInput)) {
-                        passwordError.textContent = "Invalid email format";
-                        return false;
-                    }
-
-                    passwordError.textContent = "";
-                    alert("Account created!");
-                    window.location.href = 'index.html';
                 })
                 .catch(error => {
                     console.error('Error:', error);

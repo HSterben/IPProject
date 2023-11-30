@@ -115,6 +115,7 @@
         </div>
     </main>
     <script>
+        const username = localStorage.getItem('username') || 'Guest';
         function updaterange(value) {
             document.getElementById("rangeValue").innerHTML = value;
         }
@@ -176,7 +177,7 @@
             let selectionCell = newRow.insertCell(3);
 
             gameCell.innerText = 'Dice Roll';
-            playerCell.innerText = 'User';
+            playerCell.innerText = username;
             resultCell.innerText = result;
             selectionCell.innerText = document.getElementById("rangePick").value;
             table.style.visibility = 'visible';

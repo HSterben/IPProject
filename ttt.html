@@ -100,6 +100,7 @@
         </div>
     </main>
     <script>
+        const username = localStorage.getItem('username') || 'Guest';
         let gameended = false;
         var result = document.getElementById("tttResult");
         let used = [
@@ -258,7 +259,7 @@
             let selectionCell = newRow.insertCell(3);
 
             gameCell.innerText = 'Tic Tac Toe';
-            playerCell.innerText = 'User';
+            playerCell.innerText = username;
             resultCell.innerText = result;
             selectionCell.innerText = 'N/A';
             table.style.visibility = 'visible';

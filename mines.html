@@ -153,6 +153,7 @@
         </div>
     </main>
     <script>
+        const username = localStorage.getItem('username') || 'Guest';
         const result = document.getElementById("mineResult");
         const mineSelect = document.getElementById("mineSelect");
         var placedMines;
@@ -238,7 +239,7 @@
             let selectionCell = newRow.insertCell(3);
 
             gameCell.innerText = 'Mines';
-            playerCell.innerText = 'User';
+            playerCell.innerText = username;
             resultCell.innerText = result;
             selectionCell.innerText = mineSelect.value;
             table.style.visibility = 'visible';

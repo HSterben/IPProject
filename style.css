@@ -165,7 +165,7 @@
         padding: 20px;
     }
 
-    #registerBtn {
+    .registerBtn {
         padding: 5px;
         width: 150px;
         margin: 5px;
@@ -448,14 +448,14 @@ main {
     transform: scale(1.05);
 }
 
-#registerBtn {
+.registerBtn {
     color: white;
     background-color: #4483eb;
     letter-spacing: 2px;
     transition: transform 0.15s;
 }
 
-#registerBtn:hover {
+.registerBtn:hover {
     background-color: #4e97ff;
     transform: scale(1.05);
 }
@@ -679,7 +679,7 @@ main {
         padding: 10px;
     }
 
-    #registerBtn {
+    .registerBtn {
         padding: 5px;
         width: 110px;
         margin: 3px;
@@ -868,7 +868,7 @@ main {
         padding: 10px;
     }
 
-    #registerBtn {
+    .registerBtn {
         padding: 3px;
         width: 150px;
         margin: 3px;

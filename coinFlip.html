@@ -116,6 +116,7 @@
     </main>
 </body>
 <script>
+    const username = localStorage.getItem('username') || 'Guest';
     const coin = document.querySelector(".coin");
     const radios = document.getElementsByName("headsOrTails");
     const result = document.getElementById("cfResult");
@@ -171,7 +172,7 @@
         let selectionCell = newRow.insertCell(3);
 
         gameCell.innerText = 'Coin Flip';
-        playerCell.innerText = 'User';
+        playerCell.innerText = username;
         resultCell.innerText = result;
         if (radios[0].checked) {
             selectionCell.innerText = 'Heads';
