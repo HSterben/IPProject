@@ -95,7 +95,7 @@
                         passwordError.textContent = "Invalid email format";
                         return false;
                     }
-
+                    localStorage.setItem('username', usernameInput);
                     passwordError.textContent = "";
                     alert("Account created!");
                     window.location.href = 'index.html';
